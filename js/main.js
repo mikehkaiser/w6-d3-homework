@@ -18,8 +18,8 @@ let message_div = document.getElementById('lineup');
 
 
 // getting data from the api
-const apiFetch = async (season_query, round_query) =>{
-    let response = await axios.get(`https://ergast.com/api/f1/${season_query}/${round_query}/driverStandings.json`)
+const apiFetch = async (season, round) =>{
+    let response = await axios.get(`https://ergast.com/api/f1/${season}/${round}/driverStandings.json`)
     console.log(response.data)
     return response.data
 };
@@ -27,6 +27,17 @@ const apiFetch = async (season_query, round_query) =>{
 // playing around with building the tables dynamically
 const Ergast_data = {
     driver_rows: '.driver-results'
+}
+
+const driverLineup = () =>{
+    const rows = `<tr>
+    <th scope="row">${position}</th>
+    <td id="name${position}">${driver_name}</td>
+    <td id="nationality${position}">${nationality}</td>
+    <td id="sponsor${position}">${sponsor}</td>
+    <td id="points${position}">${points}</td>
+</tr>`;
+    document.querySelector(Ergast_data.driver_rows).insertAdjacentHTML('beforeend', rows)
 }
 
 // add event listener to submit button to create a message upon pushing button
@@ -43,15 +54,18 @@ form.addEventListener('submit', (event) =>{
 form.addEventListener('submit', async (event) =>{
     let season = event.path[0][0].value
     let round = event.path[0][1].value
-    const drivers = await apiFetch(season, round)
-    for(let i = 0; i<7; i++){
+    let position = `${drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].position}`
     let driver_name = `${drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].Driver.givenName} ${drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].Driver.familyName}`;
     let nationality = `${drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].Driver.nationality}`;
     let sponsor = `${drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].Constructors[0].name}`;
     let points = `${drivers.MRData.StandingsTable.StandingsLists[0].DriverStandings[i].points}`;
+    const drivers = await apiFetch(season, round)
+    for(let i = 0; i<7; i++){
+        // drivers.forEach( driver => driverLineup.rows)
     document.getElementById("name" + String(i)).innerHTML = `${driver_name}`
     document.getElementById("nationality" + String(i)).innerHTML = `${nationality}`
     document.getElementById("sponsor" + String(i)).innerHTML = `${sponsor}`
     document.getElementById("points" + String(i)).innerHTML = `${points}`
-    }
+    
+}
 })
