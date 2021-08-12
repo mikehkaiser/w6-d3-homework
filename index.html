@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/main.js" defer></script>
+<title>Driver Standings</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="header text-center d-flex mx-auto my-1">
+        <h1>Welcome to the driver's seat</h1>
+        </div>
+        <div class="d-flex justify-content-center my-3">
+        <form name="season-selector-form" id="which-season">
+            <label for="season">Enter Season</label>
+            <input type="text" name="season-field" id="season-input">
+            <label for="round">Enter Round</label>
+            <input type="text" name="round-field" id="round-input">
+            <button class="btn btn-warning d-block px-5 mx-auto" type="submit" id="submit-button">Get Drivers</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center" id="lineup"><!-- New h3 will appear here --></div>
+<!-- Table goes here -->
+<div class="container d-flex justify-content-center table-div">
+    <div class="row col-10">
+        <table class="table table-light table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Position</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Nationality</th>
+                    <th scope="col">Sponsor</th>
+                    <th scope="col">Points</th>
+                </tr>
+            </thead>
+            <tbody class="driver-results">
+                <tr>
+                    <th scope="row">1</th>
+                    <td id="name0"></td>
+                    <td id="nationality0"></td>
+                    <td id="sponsor0"></td>
+                    <td id="points0"></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td id="name1"></td>
+                    <td id="nationality1"></td>
+                    <td id="sponsor1"></td>
+                    <td id="points1"></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td id="name2"></td>
+                    <td id="nationality2"></td>
+                    <td id="sponsor2"></td>
+                    <td id="points2"></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td id="name3"></td>
+                    <td id="nationality3"></td>
+                    <td id="sponsor3"></td>
+                    <td id="points3"></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td id="name4"></td>
+                    <td id="nationality4"></td>
+                    <td id="sponsor4"></td>
+                    <td id="points4"></td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td id="name5"></td>
+                    <td id="nationality5"></td>
+                    <td id="sponsor5"></td>
+                    <td id="points5"></td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td id="name6"></td>
+                    <td id="nationality6"></td>
+                    <td id="sponsor6"></td>
+                    <td id="points6"></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

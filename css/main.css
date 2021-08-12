@@ -1,0 +1,25 @@
+
+body {
+
+    background-image: url(../assets/mario-kart.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.header{
+    width: fit-content;
+    border-bottom: solid black 2px
+
+}
+
+
+
+button {
+    margin: 2vh 0vh
+}
+
+input {
+    border: solid black 1px;
+    border-radius: 5px
+}
